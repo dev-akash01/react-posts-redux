@@ -1,3 +1,3 @@
 # react-posts-example
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-posts-example)
+This is a Kickstarter for React and Redux 
