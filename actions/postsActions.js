@@ -1,0 +1,31 @@
+/*
+@ The Actions to perform are defined here.
+@ fetchPosts - Fetches the posts from backend and dispatches and FETCH_POSTS action
+@ createPost - Takes the input post form data and dispatches and NEW_POST action
+*/
+
+import { FETCH_POSTS, NEW_POST } from './actiontypes';
+
+const fetchPosts = () => dispatch =>{
+    fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(res => res.json())
+        .then(posts => dispatch({
+            type: FETCH_POSTS,
+            payload: posts
+        }));
+};
+const createPost = (postData) => dispatch =>{
+    fetch('https://jsonplaceholder.typicode.com/posts', 
+        {method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+        .then(res => res.json())
+        .then(post => dispatch({
+            type: NEW_POST,
+            payload: post
+        }));
+};
+export {fetchPosts, createPost}
